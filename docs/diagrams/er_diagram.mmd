@@ -1,0 +1,45 @@
+erDiagram
+    USERS ||--o{ SUBMISSIONS : uploads
+    USERS ||--o{ COMPARISONS : requests
+    SUBMISSIONS ||--o{ COMPARISONS : "submission1_id"
+    SUBMISSIONS ||--o{ COMPARISONS : "submission2_id"
+    COMPARISONS ||--o{ REPORTS : generates
+
+    USERS {
+        int id PK
+        string name
+        string email UK
+        string password_hash
+        enum role
+        datetime created_at
+        datetime updated_at
+    }
+    SUBMISSIONS {
+        int id PK
+        int user_id FK
+        string filename
+        string stored_path
+        string language
+        bigint file_size
+        string code_hash
+        datetime uploaded_at
+    }
+    COMPARISONS {
+        int id PK
+        int user_id FK
+        int submission1_id FK
+        int submission2_id FK
+        float ast_similarity
+        float token_similarity
+        float structural_similarity
+        float ml_score
+        float final_score
+        string risk_level
+        datetime created_at
+    }
+    REPORTS {
+        int id PK
+        int comparison_id FK
+        string report_path
+        datetime created_at
+    }

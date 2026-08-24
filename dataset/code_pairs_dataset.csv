@@ -1,0 +1,879 @@
+code_a,code_b,label,category,base_problem
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,fibonacci_vs_count_vowels
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,max_in_list_vs_count_vowels
+"word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+","word = ""engineering""
+vowels = set(""aeiou"")
+count = sum(1 for ch in word if ch in vowels)
+print(count)
+",0,different_algorithm,count_vowels
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","a0 = [1, 2, 3, 4, 5]
+b1 = 0
+for c2 in a0:
+    b1 += c2
+print(b1)
+",1,renamed_variable,sum_list
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,max_in_list_vs_sum_list
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,reverse_string_vs_sum_list
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","values = [1, 2, 3, 4, 5]  
+total = 0  
+for v in values:  
+    total += v  
+print(total)  
+",1,reformatted,sum_list
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+print(fib(10))
+",0,different_algorithm,fibonacci
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+",0,unrelated,is_prime_vs_reverse_string
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","text = ""hello world""  
+reversed_text = text[::-1]  
+print(reversed_text)  
+",1,reformatted,reverse_string
+"a = 10
+b = 20
+c = a + b
+print(c)
+","def add(x, y):
+    return x + y
+
+result = add(10, 20)
+print(result)
+",0,different_algorithm,sum_two
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+",0,unrelated,max_in_list_vs_is_prime
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","def a0(b1):
+    if b1 < 2:
+        return False
+    for c2 in range(2, b1):
+        if b1 % c2 == 0:
+            return False
+    return True
+
+print(a0(17))
+",1,renamed_variable,is_prime
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+",0,unrelated,factorial_vs_reverse_string
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def a0(b1):
+    var03, var14 = 0, 1
+    for c2 in range(b1):
+        var03, var14 = var14, var03 + var14
+    return var03
+
+print(a0(10))
+",1,renamed_variable,fibonacci
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","a0 = [1, 2, 3, 4, 5]  
+b1 = 0  
+for c2 in a0:  
+    b1 += c2  
+print(b1)  
+",1,renamed_and_reformatted,sum_list
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","numbers = [4, 2, 9, 1, 7]  
+largest = numbers[0]  
+for num in numbers:  
+    if num > largest:  
+        largest = num  
+print(largest)  
+",1,reformatted,max_in_list
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","numbers = [4, 2, 9, 1, 7]
+print(max(numbers))
+",0,different_algorithm,max_in_list
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def x0(total2):  
+    y1 = 1  
+    for var03 in range(1, total2 + 1):  
+        y1 = y1 * var03  
+    return y1  
+print(x0(5))  
+",1,renamed_and_reformatted,factorial
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+_unused = 0
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+",1,modified,max_in_list
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,reverse_string_vs_count_vowels
+"word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+","word = ""engineering""  
+vowels = ""aeiou""  
+count = 0  
+for ch in word:  
+    if ch in vowels:  
+        count += 1  
+print(count)  
+",1,reformatted,count_vowels
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,factorial_vs_count_vowels
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+",0,unrelated,factorial_vs_is_prime
+"word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+","var14 = ""x0""
+y1 = ""total2""
+var03 = 0
+for var25 in var14:
+    if var25 in y1:
+        var03 += 1
+print(var03)
+",1,renamed_variable,count_vowels
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+",0,unrelated,factorial_vs_max_in_list
+"a = 10
+b = 20
+c = a + b
+print(c)
+","a = 10  
+b = 20  
+c = a + b  
+print(c)  
+",1,reformatted,sum_two
+"a = 10
+b = 20
+c = a + b
+print(c)
+","def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+",0,unrelated,sum_two_vs_factorial
+"a = 10
+b = 20
+c = a + b
+print(c)
+","numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+",0,unrelated,sum_two_vs_max_in_list
+"a = 10
+b = 20
+c = a + b
+print(c)
+","def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+",0,unrelated,sum_two_vs_is_prime
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","values = [1, 2, 3, 4, 5]
+total = 0
+_unused = 0
+for v in values:
+    total += v
+print(total)
+",1,modified,sum_list
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","def m0(n1):  
+    if n1 < 2:  
+        return False  
+    for res2 in range(2, n1):  
+        if n1 % res2 == 0:  
+            return False  
+    return True  
+print(m0(17))  
+",1,renamed_and_reformatted,is_prime
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def m0(n1):  
+    var03, var14 = 0, 1  
+    for res2 in range(n1):  
+        var03, var14 = var14, var03 + var14  
+    return var03  
+print(m0(10))  
+",1,renamed_and_reformatted,fibonacci
+"a = 10
+b = 20
+c = a + b
+print(c)
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,sum_two_vs_sum_list
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,sum_list_vs_count_vowels
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def factorial(n):
+    result = 1
+    _unused = 0
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+",1,modified,factorial
+"values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+","values = [1, 2, 3, 4, 5]
+print(sum(values))
+",0,different_algorithm,sum_list
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","text = ""hello world""
+chars = list(text)
+chars.reverse()
+print("""".join(chars))
+",0,different_algorithm,reverse_string
+"a = 10
+b = 20
+c = a + b
+print(c)
+","a = 10
+b = 20
+_unused = 0
+c = a + b
+print(c)
+",1,modified,sum_two
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def fib(n):  
+    a, b = 0, 1  
+    for _ in range(n):  
+        a, b = b, a + b  
+    return a  
+print(fib(10))  
+",1,reformatted,fibonacci
+"word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+","var14 = ""x0""  
+y1 = ""total2""  
+var03 = 0  
+for var25 in var14:  
+    if var25 in y1:  
+        var03 += 1  
+print(var03)  
+",1,renamed_and_reformatted,count_vowels
+"a = 10
+b = 20
+c = a + b
+print(c)
+","def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+",0,unrelated,sum_two_vs_fibonacci
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","def is_prime(n):
+    if n < 2:
+    _unused = 0
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+",1,modified,is_prime
+"a = 10
+b = 20
+c = a + b
+print(c)
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,sum_two_vs_count_vowels
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","def is_prime(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+print(is_prime(17))
+",0,different_algorithm,is_prime
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def p0(r2):
+    q1 = 1
+    for var03 in range(1, r2 + 1):
+        q1 = q1 * var03
+    return q1
+
+print(p0(5))
+",1,renamed_variable,factorial
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def factorial(n):  
+    result = 1  
+    for i in range(1, n + 1):  
+        result = result * i  
+    return result  
+print(factorial(5))  
+",1,reformatted,factorial
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+",0,unrelated,fibonacci_vs_is_prime
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","x0 = [4, 2, 9, 1, 7]  
+y1 = x0[0]  
+for total2 in x0:  
+    if total2 > y1:  
+        y1 = total2  
+print(y1)  
+",1,renamed_and_reformatted,max_in_list
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+",0,different_algorithm,factorial
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,fibonacci_vs_sum_list
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","def is_prime(n):  
+    if n < 2:  
+        return False  
+    for i in range(2, n):  
+        if n % i == 0:  
+            return False  
+    return True  
+print(is_prime(17))  
+",1,reformatted,is_prime
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","text = ""hello world""
+reversed_text = text[::-1]
+_unused = 0
+print(reversed_text)
+",1,modified,reverse_string
+"a = 10
+b = 20
+c = a + b
+print(c)
+","text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+",0,unrelated,sum_two_vs_reverse_string
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","x0 = [4, 2, 9, 1, 7]
+y1 = x0[0]
+for total2 in x0:
+    if total2 > y1:
+        y1 = total2
+print(y1)
+",1,renamed_variable,max_in_list
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+",0,unrelated,fibonacci_vs_reverse_string
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+",0,unrelated,factorial_vs_fibonacci
+"a = 10
+b = 20
+c = a + b
+print(c)
+","c2 = 10
+b1 = 20
+a0 = c2 + b1
+print(a0)
+",1,renamed_variable,sum_two
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+",0,unrelated,max_in_list_vs_reverse_string
+"def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
+
+print(factorial(5))
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,factorial_vs_sum_list
+"def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+","def fib(n):
+    a, b = 0, 1
+    _unused = 0
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+",1,modified,fibonacci
+"word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+","word = ""engineering""
+vowels = ""aeiou""
+_unused = 0
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",1,modified,count_vowels
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","values = [1, 2, 3, 4, 5]
+total = 0
+for v in values:
+    total += v
+print(total)
+",0,unrelated,is_prime_vs_sum_list
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","var03 = ""b1 c2""  
+a0 = var03[::-1]  
+print(a0)  
+",1,renamed_and_reformatted,reverse_string
+"numbers = [4, 2, 9, 1, 7]
+largest = numbers[0]
+for num in numbers:
+    if num > largest:
+        largest = num
+print(largest)
+","def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+print(fib(10))
+",0,unrelated,max_in_list_vs_fibonacci
+"text = ""hello world""
+reversed_text = text[::-1]
+print(reversed_text)
+","var03 = ""val21 outcome2""
+val10 = var03[::-1]
+print(val10)
+",1,renamed_variable,reverse_string
+"a = 10
+b = 20
+c = a + b
+print(c)
+","c2 = 10  
+b1 = 20  
+a0 = c2 + b1  
+print(a0)  
+",1,renamed_and_reformatted,sum_two
+"def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))
+","word = ""engineering""
+vowels = ""aeiou""
+count = 0
+for ch in word:
+    if ch in vowels:
+        count += 1
+print(count)
+",0,unrelated,is_prime_vs_count_vowels

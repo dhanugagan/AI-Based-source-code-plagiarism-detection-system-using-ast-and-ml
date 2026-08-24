@@ -1,0 +1,14 @@
+flowchart TD
+    U[User / Browser] -->|HTTPS| FE[React Frontend<br/>Vite + Tailwind]
+    FE -->|REST + JWT| API[FastAPI Backend]
+    API --> AUTH[Auth Service<br/>JWT + bcrypt]
+    API --> FS[File Service<br/>validation + storage]
+    API --> CS[Comparison Service]
+    CS --> ASTE[AST Engine<br/>parse / normalize / features / similarity]
+    CS --> MLE[ML Engine<br/>Random Forest predict]
+    API --> RPT[Report Service<br/>ReportLab PDF]
+    API --> DB[(Relational Database<br/>SQLite / MySQL)]
+    FS --> DISK[(Uploaded Source Files)]
+    RPT --> DISK2[(Generated PDF Reports)]
+    MLE --> MODEL[(Trained Model<br/>.joblib)]
+    ASTE -.->|features + scores| MLE

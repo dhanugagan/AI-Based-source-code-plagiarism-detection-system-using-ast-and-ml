@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor S as Student
+    participant FE as React Frontend
+    participant API as FastAPI /api/comparisons/analyze
+    participant DB as Database
+    participant AST as AST Engine
+    participant ML as ML Engine
+
+    S->>FE: Select Submission A + B, click Analyze
+    FE->>API: POST /api/comparisons/analyze (JWT)
+    API->>DB: Fetch submissions owned by user
+    DB-->>API: Submission A, Submission B
+    API->>AST: parse + normalize + extract features (A, B)
+    AST-->>API: features_a, features_b
+    API->>AST: compute AST / token / cosine / TED similarity
+    AST-->>API: similarity scores
+    API->>ML: predict(code_a, code_b)
+    ML-->>API: ml_score
+    API->>API: compute weighted final_score, classify risk
+    API->>DB: INSERT Comparison record
+    DB-->>API: comparison.id
+    API-->>FE: ComparisonDetail JSON (scores, explanation, code)
+    FE-->>S: Render similarity gauge + breakdown + code view

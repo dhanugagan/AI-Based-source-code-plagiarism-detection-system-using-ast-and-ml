@@ -1,0 +1,59 @@
+version: "3.9"
+
+# Full containerized stack, using MySQL as specified in the project brief.
+# For local development without Docker, the backend defaults to SQLite
+# instead (see backend/.env.example) — no code changes needed either way.
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: plagiarism_db
+      MYSQL_USER: plagiarism_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-changeme}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-changeme_root}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: mysql+pymysql://plagiarism_user:${MYSQL_PASSWORD:-changeme}@db:3306/plagiarism_db
+      SECRET_KEY: ${SECRET_KEY:-change-this-secret-key-in-production}
+      JWT_SECRET: ${JWT_SECRET:-change-this-jwt-secret-in-production}
+      UPLOAD_DIRECTORY: /data/uploads
+      REPORT_DIRECTORY: /data/reports
+      MODEL_PATH: /data/models/plagiarism_model.joblib
+      CORS_ORIGINS: http://localhost:5173,http://localhost
+    volumes:
+      - uploads_data:/data/uploads
+      - reports_data:/data/reports
+      - models_data:/data/models
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  mysql_data:
+  uploads_data:
+  reports_data:
+  models_data:
